@@ -19,7 +19,7 @@ $app['description'] = lang('support_app_description');
 
 $app['name'] = lang('support_app_name');
 $app['category'] = lang('base_category_system');
-$app['subcategory'] = lang('base_subcategory_support');
+$app['subcategory'] = lang('base_subcategory_settings');
 
 /////////////////////////////////////////////////////////////////////////////
 // Packaging
