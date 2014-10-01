@@ -70,7 +70,7 @@ class Support extends ClearOS_Controller
         //---------------
         $data = array();
 
-        $this->page->view_form('support/overview', $data, lang('support_app_name'));
+        $this->page->view_form('support/overview', $data, lang('support_app_name'), array('type' => MY_Page::TYPE_SPOTLIGHT));
     }
 
 }
