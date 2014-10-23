@@ -36,7 +36,7 @@
 $this->lang->load('base');
 
 $buttons = array(
-    anchor_custom('#', lang('base_go')),
+    anchor_custom('#', lang('base_go'), 'high', array('id' => 'support-knowledgebase'))
 );
 
 $options = array(
@@ -45,20 +45,29 @@ $options = array(
 
 echo row_open();
 echo column_open(4);
-echo box_open(lang('support_knowledge_base'));
+echo box_open(lang('support_knowledge_base'), array('class' => 'support-knowledgebase'));
 echo box_content(image('gateway.svg', array('class' => 'support-item')));
+$buttons = array(
+    anchor_custom('#', lang('base_go'), 'high', array('id' => 'support-knowledgebase', 'target' => '_blank'))
+);
 echo box_footer('knowledge_base', button_set($buttons), $options);
 echo box_close();
 echo column_close();
 echo column_open(4);
-echo box_open(lang('support_submit_ticket'));
+echo box_open(lang('support_submit_ticket'), array('class' => 'support-ticket'));
 echo box_content(image('gateway.svg', array('class' => 'support-item')));
+$buttons = array(
+    anchor_custom('#', lang('base_go'), 'high', array('id' => 'support-ticket', 'target' => '_blank'))
+);
 echo box_footer('knowledge_base', button_set($buttons), $options);
 echo box_close();
 echo column_close();
 echo column_open(4);
-echo box_open(lang('support_realtime_chat'));
+echo box_open(lang('support_realtime_chat'), array('class' => 'support-chat'));
 echo box_content(image('gateway.svg', array('class' => 'support-item')));
+$buttons = array(
+    anchor_custom('#', lang('base_go'), 'high', array('id' => 'support-chat', 'target' => '_blank'))
+);
 echo box_footer('knowledge_base', button_set($buttons), $options);
 echo box_close();
 echo column_close();
@@ -66,20 +75,29 @@ echo row_close();
 
 echo row_open();
 echo column_open(4);
-echo box_open(lang('support_documentation'));
+echo box_open(lang('support_documentation'), array('class' => 'support-documentation'));
 echo box_content(image('gateway.svg', array('class' => 'support-item')));
+$buttons = array(
+    anchor_custom('#', lang('base_go'), 'high', array('id' => 'support-documentation', 'target' => '_blank'))
+);
 echo box_footer('knowledge_base', button_set($buttons), $options);
 echo box_close();
 echo column_close();
 echo column_open(4);
-echo box_open(lang('support_community_forums'));
+echo box_open(lang('support_community_forums'), array('class' => 'support-forums'));
 echo box_content(image('gateway.svg', array('class' => 'support-item')));
+$buttons = array(
+    anchor_custom('#', lang('base_go'), 'high', array('id' => 'support-forums', 'target' => '_blank'))
+);
 echo box_footer('knowledge_base', button_set($buttons), $options);
 echo box_close();
 echo column_close();
 echo column_open(4);
-echo box_open(lang('support_submit_bug_report'));
+echo box_open(lang('support_submit_bug_report'), array('class' => 'support-bug-report'));
 echo box_content(image('gateway.svg', array('class' => 'support-item')));
+$buttons = array(
+    anchor_custom('#', lang('base_go'), 'high', array('id' => 'support-bug-report', 'target' => '_blank'))
+);
 echo box_footer('knowledge_base', button_set($buttons), $options);
 echo box_close();
 echo column_close();

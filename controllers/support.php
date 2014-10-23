@@ -73,4 +73,24 @@ class Support extends ClearOS_Controller
         $this->page->view_form('support/overview', $data, lang('support_app_name'), array('type' => MY_Page::TYPE_SPOTLIGHT));
     }
 
+    /**
+     * Ajax support info
+     *
+     * @return JSON
+     */
+
+    function get_support_info()
+    {
+        clearos_profile(__METHOD__, __LINE__);
+
+        header('Cache-Control: no-cache, must-revalidate');
+        header('Content-type: application/json');
+
+        try {
+            $this->load->library('support/Support');
+            echo $this->support->get_support_info();
+        } catch (Exception $e) {
+            echo json_encode(Array('code' => clearos_exception_code($e), 'errmsg' => clearos_exception_message($e)));
+        }
+    }
 }
