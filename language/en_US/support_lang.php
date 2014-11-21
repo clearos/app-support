@@ -8,3 +8,5 @@ $lang['support_realtime_chat'] = 'Real Time Chat Support';
 $lang['support_documentation'] = 'Documentation';
 $lang['support_community_forums'] = 'Community Forums';
 $lang['support_submit_bug_report'] = 'Submit a Bug Report';
+$lang['support_upgrade'] = 'Upgrade';
+$lang['support_upgrade_window'] = 'Upgrade Eligibility';
