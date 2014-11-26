@@ -94,7 +94,7 @@ echo box_footer('knowledge_base', button_set($buttons), $options);
 echo box_close();
 echo column_close();
 echo column_open(4);
-echo box_open(lang('support_submit_bug_report'), array('id' => 'submit-bug-container', 'class' => 'support-bug-report'));
+echo box_open(lang('support_submit_bug_report'), array('id' => 'submit-bug-container', 'class' => 'support-box-container'));
 echo box_content(image('bug_report.svg', array('class' => 'support-item')));
 $buttons = array(
     anchor_custom('#', lang('base_go'), 'high', array('id' => 'support-bug-report', 'target' => '_blank'))
