@@ -1,7 +1,7 @@
 
 Name: app-support
 Epoch: 1
-Version: 2.0.5
+Version: 2.0.10
 Release: 1%{dist}
 Summary: ClearCARE Technical Support
 License: GPLv3

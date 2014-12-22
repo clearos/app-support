@@ -56,7 +56,7 @@ echo box_close();
 echo column_close();
 echo column_open(4);
 echo box_open(lang('support_submit_ticket'), array('id' => 'submit-ticket-container', 'class' => 'support-box-container'));
-echo box_content(image('support.svg', array('class' => 'support-item')));
+echo box_content(image('ticket.svg', array('class' => 'support-item')));
 $buttons = array(
     anchor_custom('#', lang('base_go'), 'high', array('id' => 'support-ticket', 'target' => '_blank'))
 );
