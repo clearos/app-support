@@ -80,7 +80,7 @@ function get_support_info() {
                 $('#support-ticket').hide();
                 $('#support-chat').hide();
             } else if (data.code == 0) {
-                if (data.edition != 'community') {
+                if (data.edition == 'community') {
                     // Community Edition
                     if (data.upgrade_eligible) {
                         var options = new Object();
@@ -118,6 +118,11 @@ function get_support_info() {
                         );
                         $('#support-chat').hide();
                     }
+                } else {
+                    $('#submit-ticket-container div.support-item').append('<div class=\'support-banner support-upgrade-required\'>' + lang_upgrade + '</div>');
+                    $('#support-ticket').hide();
+                    $('#realtime-chat-container div.support-item').append('<div class=\'support-banner support-upgrade-required\'>' + lang_upgrade + '</div>');
+                    $('#support-chat').hide();
                 }
             }
             $('#support-knowledgebase').attr('href', data.links.knowledgebase);
