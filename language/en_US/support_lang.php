@@ -6,7 +6,6 @@ $lang['support_chat_not_available'] = 'Support via chat is unavailable at this t
 $lang['support_community_forums'] = 'Community Forums';
 $lang['support_contact_upgrades'] = 'Contact our <a href="#" class="support-contact">upgrade team</a> for options.';
 $lang['support_documentation'] = 'Documentation';
-$lang['support_email'] = 'Email';
 $lang['support_knowledge_base'] = 'Advanced Knowledge Base';
 $lang['support_no_open_tickets'] = 'No Open Tickets';
 $lang['support_not_available'] = 'Not Available';

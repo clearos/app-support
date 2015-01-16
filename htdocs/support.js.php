@@ -7,7 +7,7 @@
  * @package    support
  * @subpackage javascript
  * @author     ClearCenter <developer@clearcenter.com>
- * @copyright  2011 ClearCenter
+ * @copyright  2015 ClearCenter
  * @license    http://www.clearcenter.com/app_license ClearCenter license
  * @link       http://www.clearcenter.com/support/documentation/clearos/support/
  */
@@ -26,7 +26,6 @@ require_once $bootstrap . '/bootstrap.php';
 clearos_load_language('support');
 clearos_load_language('base');
 
-
 ///////////////////////////////////////////////////////////////////////////////
 // J A V A S C R I P T
 ///////////////////////////////////////////////////////////////////////////////
@@ -41,7 +40,7 @@ var lang_days = '<?php echo lang('base_days'); ?>';
 var lang_upgrade = '<?php echo lang('support_upgrade'); ?>';
 var lang_upgrade_window = '<?php echo lang('support_upgrade_window'); ?>';
 var lang_phone = '<?php echo lang('support_phone'); ?>';
-var lang_email = '<?php echo lang('support_email'); ?>';
+var lang_email = '<?php echo lang('base_email_address'); ?>';
 var lang_web = '<?php echo lang('support_web'); ?>';
 var lang_not_available = '<?php echo lang('support_not_available'); ?>';
 var lang_no_open_tickets = '<?php echo lang('support_no_open_tickets'); ?>';
@@ -134,9 +133,9 @@ function get_support_info() {
             $('.support-contact').on('click', function(e) {
                 e.preventDefault();
                 clearos_dialog_box('support-contact', data.support_contact_title,
-                '<div class=\'col-md-2\'>' + lang_phone + ':</div><div class=\'col-md-10\'>' + data.sales_phone + '</div>' +
-                '<div class=\'col-md-2\'>' + lang_email + ':</div><div class=\'col-md-10\'>' + data.sales_email + '</div>' +
-                '<div class=\'col-md-2\'>' + lang_web + ':</div><div class=\'col-md-10\'><a href=\'' + data.sales_web + '\' target=\'_blank\'>' + data.sales_web + '</a></div>' +
+                '<div class=\'col-md-3\'>' + lang_phone + '</div><div class=\'col-md-9\'>' + data.sales_phone + '</div>' +
+                '<div class=\'col-md-3\'>' + lang_email + '</div><div class=\'col-md-9\'>' + data.sales_email + '</div>' +
+                '<div class=\'col-md-3\'>' + lang_web + '</div><div class=\'col-md-9\'><a href=\'' + data.sales_web + '\' target=\'_blank\'>' + data.sales_web + '</a></div>' +
                 '<div class=\'clearfix\'></div>'
                 );
             });
