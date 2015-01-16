@@ -1,7 +1,7 @@
 <?php
 
 $lang['support_app_description'] = 'Options and resources for supporting your system.  If you would like to discuss your requirements, please <a href="#" class="support-contact">contact us</a>.';
-$lang['support_app_name'] = 'ClearCARE Technical Support';
+$lang['support_app_name'] = 'Support';
 $lang['support_chat_not_available'] = 'Support via chat is unavailable at this time.';
 $lang['support_community_forums'] = 'Community Forums';
 $lang['support_contact_upgrades'] = 'Contact our <a href="#" class="support-contact">upgrade team</a> for options.';

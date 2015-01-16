@@ -1,7 +1,7 @@
 
 Name: app-support
 Epoch: 1
-Version: 2.0.10
+Version: 2.0.14
 Release: 1%{dist}
 Summary: ClearCARE Technical Support
 License: GPLv3
@@ -12,7 +12,7 @@ Requires: %{name}-core = 1:%{version}-%{release}
 Requires: app-base
 
 %description
-Options and resources for supporting your system.
+Options and resources for supporting your system.  If you would like to discuss your requirements, please <a href="#" class="support-contact">contact us</a>.
 
 %package core
 Summary: ClearCARE Technical Support - Core
@@ -22,7 +22,7 @@ Requires: app-base-core
 Requires: app-clearcenter
 
 %description core
-Options and resources for supporting your system.
+Options and resources for supporting your system.  If you would like to discuss your requirements, please <a href="#" class="support-contact">contact us</a>.
 
 This package provides the core API and libraries.
 
