@@ -1,9 +1,9 @@
 
 Name: app-support
 Epoch: 1
-Version: 2.0.14
+Version: 2.0.18
 Release: 1%{dist}
-Summary: ClearCARE Technical Support
+Summary: Support
 License: GPLv3
 Group: ClearOS/Apps
 Source: %{name}-%{version}.tar.gz
@@ -15,7 +15,7 @@ Requires: app-base
 Options and resources for supporting your system.  If you would like to discuss your requirements, please <a href="#" class="support-contact">contact us</a>.
 
 %package core
-Summary: ClearCARE Technical Support - Core
+Summary: Support - Core
 License: LGPLv3
 Group: ClearOS/Libraries
 Requires: app-base-core
