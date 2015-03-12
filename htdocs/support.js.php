@@ -35,8 +35,8 @@ header('Content-Type: application/x-javascript');
 ?>
 var lang_error = '<?php echo lang('base_error'); ?>';
 var lang_warning = '<?php echo lang('base_warning'); ?>';
-var lang_day = '<?php echo lang('base_day'); ?>';
-var lang_days = '<?php echo lang('base_days'); ?>';
+var lang_day = '<?php echo lang('support_day_remaining'); ?>';
+var lang_days = '<?php echo lang('support_days_remaining'); ?>';
 var lang_upgrade = '<?php echo lang('support_upgrade'); ?>';
 var lang_upgrade_window = '<?php echo lang('support_upgrade_window'); ?>';
 var lang_phone = '<?php echo lang('support_phone'); ?>';
@@ -47,6 +47,7 @@ var lang_no_open_tickets = '<?php echo lang('support_no_open_tickets'); ?>';
 var lang_please_open_ticket = '<?php echo lang('support_please_open_ticket'); ?>';
 var lang_chat_not_available = '<?php echo lang('support_chat_not_available'); ?>';
 var lang_contact_upgrades = '<?php echo addslashes(lang('support_contact_upgrades')); ?>';
+var lang_upgrades_and_per_incident = '<?php echo addslashes(lang('support_upgrades_and_per_incident')); ?>';
 
 $(document).ready(function() {
    get_support_info();
@@ -83,23 +84,31 @@ function get_support_info() {
                     // Community Edition
                     if (data.upgrade_eligible) {
                         var options = new Object();
-                        $('#message_container').html(clearos_infobox_info(lang_upgrade_window, data.upgrade_text +
-                            '<div class=\'support-upgrade-days-remaining\'>' + data.days_remaining + ' ' +
-                            (data.days_remaining > 1 ? lang_days : lang_day) + '</div>', options)
+                        $('#message_container').show();
+                        $('#message_content').html(data.upgrade_text);
+                        $('#support-upgrade-days-remaining').html(data.days_remaining + ' ' + (data.days_remaining > 1 ? lang_days : lang_day));
+                        $('#f_support, #f_realtime_chat').hide();
+                        $('#submit-ticket-container div.support-item, #realtime-chat-container div.support-item').append(
+                            '<div class=\'support-banner support-upgrade-required\'>' + lang_upgrade + '</div>'
                         );
-                        $('#submit-ticket-container div.support-item').append('<div class=\'support-banner support-upgrade-required\'>' + lang_upgrade + '</div>');
-                        $('#support-ticket').hide();
-                        $('#realtime-chat-container div.support-item').append('<div class=\'support-banner support-upgrade-required\'>' + lang_upgrade + '</div>');
-                        $('#support-chat').hide();
                     } else {
                         $('#submit-ticket-container div.support-item, #realtime-chat-container div.support-item').append(
                             '<div class=\'support-banner support-not-available\'>' +
                             '<div class=\'support-title\'>' + lang_not_available + '</div>' +
-                            '<div class=\'support-additional-info\'>Contact our <a href=\'#\' class=\'support-contact\'>upgrade team</a> for options.</div>' +
+                            '<div class=\'support-additional-info\'>' + lang_contact_upgrades + '</div>' +
                             '</div>'
                         );
+                        $('#f_support, #f_realtime_chat').hide();
                     }
-                } else if (data.edition == 'professional') {
+                } else if (data.edition == 'home') {
+                    // Home Edition
+                    $('#submit-ticket-container div.support-item, #realtime-chat-container div.support-item').append(
+                        '<div class=\'support-banner support-not-available\'>' +
+                        '<div class=\'support-title support-no-additional-info\'>' + lang_not_available + '</div>' +
+                        '</div>'
+                    );
+                } else if (data.edition == 'business') {
+                    // Business Edition
                     if (!data.has_open_ticket) {
                         $('#realtime-chat-container div.support-item').append(
                             '<div class=\'support-banner support-no-open-tickets\'>' +
@@ -108,7 +117,7 @@ function get_support_info() {
                             '</div>'
                         );
                         $('#support-chat').hide();
-                    } else if (!data.chat_not_available) {
+                    } else if (!data.chat_available) {
                         $('#realtime-chat-container div.support-item').append(
                             '<div class=\'support-banner support-no-open-tickets\'>' +
                             '<div class=\'support-title\'>' + lang_not_available + '</div>' +
@@ -116,6 +125,15 @@ function get_support_info() {
                             '</div>'
                         );
                         $('#support-chat').hide();
+                    }
+                    if (!data.support_included && !data.no_per_incident) {
+                        $('#submit-ticket-container div.support-item, #realtime-chat-container div.support-item').append(
+                            '<div class=\'support-banner support-not-available\'>' +
+                            '<div class=\'support-additional-info\'>' + lang_upgrades_and_per_incident + '</div>' +
+                            '</div>'
+                        );
+                        $('#f_support, #f_realtime_chat').hide();
+                        $('.support-upgrade-url').attr('href', data.buy_support);
                     }
                 } else {
                     $('#submit-ticket-container div.support-item').append('<div class=\'support-banner support-upgrade-required\'>' + lang_upgrade + '</div>');

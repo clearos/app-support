@@ -7,7 +7,7 @@
  * @package    support
  * @subpackage views
  * @author     ClearFoundation <developer@clearfoundation.com>
- * @copyright  2011 ClearFoundation
+ * @copyright  2015 ClearFoundation
  * @license    http://www.gnu.org/copyleft/gpl.html GNU General Public License version 3 or later
  * @link       http://www.clearfoundation.com/docs/developer/apps/support/
  */
@@ -35,15 +35,24 @@
 
 $this->lang->load('base');
 
-$buttons = array(
-    anchor_custom('#', lang('base_go'), 'high', array('id' => 'support-knowledgebase'))
-);
-
 $options = array(
     'class' => 'text-right'
 );
 
-echo "<div id='message_container'></div>";
+echo "<div id='message_container' class='theme-hidden'>";
+echo infobox_info(
+    lang('support_upgrade_window'),
+    row_open() .
+    column_open(9) .
+    "<div id='message_content'></div>" .
+    column_close() .
+    column_open(3, NULL, NULL, array('class' => 'text-center')) .
+    image('calendar.svg', array('size' => 'support-calendar')) .
+    "<div id='support-upgrade-days-remaining'></div>" .
+    column_close() .
+    row_close()
+);
+echo "</div>";
 echo row_open();
 echo column_open(4);
 echo box_open(lang('support_knowledge_base'), array('id' => 'knowledge-base-container', 'class' => 'support-box-container'));
@@ -51,7 +60,7 @@ echo box_content(image('advance_knowledge_base.svg', array('class' => 'support-i
 $buttons = array(
     anchor_custom('#', lang('base_go'), 'high', array('id' => 'support-knowledgebase', 'target' => '_blank'))
 );
-echo box_footer('knowledge_base', button_set($buttons), $options);
+echo box_footer('f_knowledge_base', button_set($buttons), $options);
 echo box_close();
 echo column_close();
 echo column_open(4);
@@ -60,7 +69,7 @@ echo box_content(image('ticket.svg', array('class' => 'support-item')));
 $buttons = array(
     anchor_custom('#', lang('base_go'), 'high', array('id' => 'support-ticket', 'target' => '_blank'))
 );
-echo box_footer('knowledge_base', button_set($buttons), $options);
+echo box_footer('f_support', button_set($buttons), $options);
 echo box_close();
 echo column_close();
 echo column_open(4);
@@ -69,7 +78,7 @@ echo box_content(image('chat_support.svg', array('class' => 'support-item')));
 $buttons = array(
     anchor_custom('#', lang('base_go'), 'high', array('id' => 'support-chat', 'target' => '_blank'))
 );
-echo box_footer('knowledge_base', button_set($buttons), $options);
+echo box_footer('f_realtime_chat', button_set($buttons), $options);
 echo box_close();
 echo column_close();
 echo row_close();
@@ -81,7 +90,7 @@ echo box_content(image('documentation.svg', array('class' => 'support-item')));
 $buttons = array(
     anchor_custom('#', lang('base_go'), 'high', array('id' => 'support-documentation', 'target' => '_blank'))
 );
-echo box_footer('knowledge_base', button_set($buttons), $options);
+echo box_footer('f_documentation', button_set($buttons), $options);
 echo box_close();
 echo column_close();
 echo column_open(4);
@@ -90,7 +99,7 @@ echo box_content(image('community_forums.svg', array('class' => 'support-item'))
 $buttons = array(
     anchor_custom('#', lang('base_go'), 'high', array('id' => 'support-forums', 'target' => '_blank'))
 );
-echo box_footer('knowledge_base', button_set($buttons), $options);
+echo box_footer('f_forums', button_set($buttons), $options);
 echo box_close();
 echo column_close();
 echo column_open(4);
@@ -99,7 +108,7 @@ echo box_content(image('bug_report.svg', array('class' => 'support-item')));
 $buttons = array(
     anchor_custom('#', lang('base_go'), 'high', array('id' => 'support-bug-report', 'target' => '_blank'))
 );
-echo box_footer('knowledge_base', button_set($buttons), $options);
+echo box_footer('f_bug_report', button_set($buttons), $options);
 echo box_close();
 echo column_close();
 echo row_close();
