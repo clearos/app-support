@@ -71,9 +71,11 @@ clearos_load_library('clearcenter/Rest');
 use \Exception as Exception;
 use \clearos\apps\base\Engine_Exception as Engine_Exception;
 use \clearos\apps\base\Validation_Exception as Validation_Exception;
+use \clearos\apps\base\Webservice_Exception as Webservice_Exception;
 
 clearos_load_library('base/Engine_Exception');
 clearos_load_library('base/Validation_Exception');
+clearos_load_library('base/Webservice_Exception');
 
 ///////////////////////////////////////////////////////////////////////////////
 // C L A S S

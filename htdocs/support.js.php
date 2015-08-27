@@ -77,6 +77,10 @@ function get_support_info() {
                     '<div class=\'support-additional-info\'></div>' +
                     '</div>'
                 );
+                $('#support-knowledgebase').attr('disabled', true);
+                $('#support-documentation').attr('disabled', true);
+                $('#support-forums').attr('disabled', true);
+                $('#support-bug-report').attr('disabled', true);
                 $('#support-ticket').hide();
                 $('#support-chat').hide();
             } else if (data.code == 0) {
@@ -141,22 +145,24 @@ function get_support_info() {
                     $('#realtime-chat-container div.support-item').append('<div class=\'support-banner support-upgrade-required\'>' + lang_upgrade + '</div>');
                     $('#support-chat').hide();
                 }
+                $('#support-knowledgebase').attr('href', data.links.knowledgebase);
+                $('#support-documentation').attr('href', data.links.documentation);
+                $('#support-ticket').attr('href', data.links.submit_ticket);
+                $('#support-forums').attr('href', data.links.forums);
+                $('#support-bug-report').attr('href', data.links.bug_report);
+                $('#support-chat').attr('href', data.links.chat);
+                $('.support-contact').on('click', function(e) {
+                    e.preventDefault();
+                    clearos_dialog_box('support-contact', data.support_contact_title,
+                    '<div class=\'col-md-3\'>' + lang_phone + '</div><div class=\'col-md-9\'>' + data.sales_phone + '</div>' +
+                    '<div class=\'col-md-3\'>' + lang_email + '</div><div class=\'col-md-9\'>' + data.sales_email + '</div>' +
+                    '<div class=\'col-md-3\'>' + lang_web + '</div><div class=\'col-md-9\'>' +
+                    '<a href=\'' + data.sales_web + '\' target=\'_blank\'>' + data.sales_web + '</a>' +
+                    '</div>' +
+                    '<div class=\'clearfix\'></div>'
+                    );
+                });
             }
-            $('#support-knowledgebase').attr('href', data.links.knowledgebase);
-            $('#support-documentation').attr('href', data.links.documentation);
-            $('#support-ticket').attr('href', data.links.submit_ticket);
-            $('#support-forums').attr('href', data.links.forums);
-            $('#support-bug-report').attr('href', data.links.bug_report);
-            $('#support-chat').attr('href', data.links.chat);
-            $('.support-contact').on('click', function(e) {
-                e.preventDefault();
-                clearos_dialog_box('support-contact', data.support_contact_title,
-                '<div class=\'col-md-3\'>' + lang_phone + '</div><div class=\'col-md-9\'>' + data.sales_phone + '</div>' +
-                '<div class=\'col-md-3\'>' + lang_email + '</div><div class=\'col-md-9\'>' + data.sales_email + '</div>' +
-                '<div class=\'col-md-3\'>' + lang_web + '</div><div class=\'col-md-9\'><a href=\'' + data.sales_web + '\' target=\'_blank\'>' + data.sales_web + '</a></div>' +
-                '<div class=\'clearfix\'></div>'
-                );
-            });
         },
         error: function(xhr, text, err) {
             // Don't display any errors if ajax request was aborted due to page redirect/reload
