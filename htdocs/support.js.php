@@ -83,6 +83,7 @@ function get_support_info() {
                 $('#support-bug-report').attr('disabled', true);
                 $('#support-ticket').hide();
                 $('#support-chat').hide();
+                $("a.support-contact").contents().unwrap();
             } else if (data.code == 0) {
                 if (data.edition == 'community') {
                     // Community Edition
