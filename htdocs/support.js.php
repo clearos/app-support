@@ -83,9 +83,9 @@ function get_support_info() {
                 options.type = 'warning';
                 clearos_dialog_box('data_err0', lang_error, data.errmsg, options);
                 $('#submit-ticket-container div.support-item, #realtime-chat-container div.support-item').append(
-                    '<div class=\'support-banner support-not-available\'>' +
-                    '<div class=\'support-title\'>' + lang_not_available + '</div>' +
-                    '<div class=\'support-additional-info\'></div>' +
+                    '<div class="support-banner support-not-available">' +
+                    '<div class="support-title">' + lang_not_available + '</div>' +
+                    '<div class="support-additional-info"></div>' +
                     '</div>'
                 );
                 $('#support-ticket').hide();
@@ -94,19 +94,27 @@ function get_support_info() {
                 if (data.edition == 'community') {
                     // Community Edition
                     if (data.upgrade_eligible) {
-                        var options = new Object();
+                        var a_options = {
+                            external: true,
+                            target: '_blank',
+                            buttons: true
+                        };
                         $('#message_container').show();
-                        $('#message_content').html(data.upgrade_text);
+                        $('#message_content').html(data.upgrade_text +
+                            '<div class="theme-center-text">' + clearos_anchor(data.business_upgrade, lang_upgrade, a_options) + '</div>'
+                        );
                         $('#support-upgrade-days-remaining').html(data.days_remaining + ' ' + (data.days_remaining > 1 ? lang_days : lang_day));
                         $('#f_support, #f_realtime_chat').hide();
                         $('#submit-ticket-container div.support-item, #realtime-chat-container div.support-item').append(
-                            '<div class=\'support-banner support-upgrade-required\'>' + lang_upgrade + '</div>'
+                            '<a href="#" class="support-business-upgrade" target="_blank">' + 
+                            '<div class="support-banner support-upgrade-required">' + lang_upgrade +
+                            '</div></a>'
                         );
                     } else {
                         $('#submit-ticket-container div.support-item, #realtime-chat-container div.support-item').append(
-                            '<div class=\'support-banner support-not-available\'>' +
-                            '<div class=\'support-title\'>' + lang_not_available + '</div>' +
-                            '<div class=\'support-additional-info\'>' + lang_contact_upgrades + '</div>' +
+                            '<div class="support-banner support-not-available">' +
+                            '<div class="support-title">' + lang_not_available + '</div>' +
+                            '<div class="support-additional-info">' + lang_contact_upgrades + '</div>' +
                             '</div>'
                         );
                         $('#f_support, #f_realtime_chat').hide();
@@ -114,42 +122,42 @@ function get_support_info() {
                 } else if (data.edition == 'home') {
                     // Home Edition
                     $('#submit-ticket-container div.support-item, #realtime-chat-container div.support-item').append(
-                        '<div class=\'support-banner support-not-available\'>' +
-                        '<div class=\'support-title support-no-additional-info\'>' + lang_not_available + '</div>' +
+                        '<div class="support-banner support-not-available">' +
+                        '<div class="support-title support-no-additional-info">' + lang_not_available + '</div>' +
                         '</div>'
                     );
                 } else if (data.edition == 'business') {
                     // Business Edition
                     if (!data.has_open_ticket) {
                         $('#realtime-chat-container div.support-item').append(
-                            '<div class=\'support-banner support-no-open-tickets\'>' +
-                            '<div class=\'support-title\'>' + lang_no_open_tickets + '</div>' +
-                            '<div class=\'support-additional-info\'>' + lang_please_open_ticket + '</div>' +
+                            '<div class="support-banner support-no-open-tickets">' +
+                            '<div class="support-title">' + lang_no_open_tickets + '</div>' +
+                            '<div class="support-additional-info">' + lang_please_open_ticket + '</div>' +
                             '</div>'
                         );
                         $('#support-chat').hide();
                     } else if (!data.chat_available) {
                         $('#realtime-chat-container div.support-item').append(
-                            '<div class=\'support-banner support-no-open-tickets\'>' +
-                            '<div class=\'support-title\'>' + lang_not_available + '</div>' +
-                            '<div class=\'support-additional-info\'>' + lang_chat_not_available + '</div>' +
+                            '<div class="support-banner support-no-open-tickets">' +
+                            '<div class="support-title">' + lang_not_available + '</div>' +
+                            '<div class="support-additional-info">' + lang_chat_not_available + '</div>' +
                             '</div>'
                         );
                         $('#support-chat').hide();
                     }
                     if (!data.support_included && !data.no_per_incident) {
                         $('#submit-ticket-container div.support-item, #realtime-chat-container div.support-item').append(
-                            '<div class=\'support-banner support-not-available\'>' +
-                            '<div class=\'support-additional-info\'>' + lang_upgrades_and_per_incident + '</div>' +
+                            '<div class="support-banner support-not-available">' +
+                            '<div class="support-additional-info">' + lang_upgrades_and_per_incident + '</div>' +
                             '</div>'
                         );
                         $('#f_support, #f_realtime_chat').hide();
                         $('.support-upgrade-url').attr('href', data.buy_support);
                     }
                 } else {
-                    $('#submit-ticket-container div.support-item').append('<div class=\'support-banner support-upgrade-required\'>' + lang_upgrade + '</div>');
+                    $('#submit-ticket-container div.support-item').append('<div class="support-banner support-upgrade-required">' + lang_upgrade + '</div>');
                     $('#support-ticket').hide();
-                    $('#realtime-chat-container div.support-item').append('<div class=\'support-banner support-upgrade-required\'>' + lang_upgrade + '</div>');
+                    $('#realtime-chat-container div.support-item').append('<div class="support-banner support-upgrade-required">' + lang_upgrade + '</div>');
                     $('#support-chat').hide();
                 }
             }
@@ -159,15 +167,16 @@ function get_support_info() {
             $('#support-forums').attr('href', data.links.forums);
             $('#support-bug-report').attr('href', data.links.bug_report);
             $('#support-chat').attr('href', data.links.chat);
+            $('.support-business-upgrade').attr('href', data.business_upgrade);
             $('.support-contact').on('click', function(e) {
                 e.preventDefault();
                 clearos_dialog_box('support-contact', data.support_contact_title,
-                '<div class=\'col-md-3\'>' + lang_phone + '</div><div class=\'col-md-9\'>' + data.sales_phone + '</div>' +
-                '<div class=\'col-md-3\'>' + lang_email + '</div><div class=\'col-md-9\'>' + data.sales_email + '</div>' +
-                '<div class=\'col-md-3\'>' + lang_web + '</div><div class=\'col-md-9\'>' +
-                '<a href=\'' + data.sales_web + '\' target=\'_blank\'>' + data.sales_web + '</a>' +
+                '<div class="col-md-3">' + lang_phone + '</div><div class="col-md-9">' + data.sales_phone + '</div>' +
+                '<div class="col-md-3">' + lang_email + '</div><div class="col-md-9">' + data.sales_email + '</div>' +
+                '<div class="col-md-3">' + lang_web + '</div><div class="col-md-9">' +
+                '<a href="' + data.sales_web + '" target="_blank">' + data.sales_web + '</a>' +
                 '</div>' +
-                '<div class=\'clearfix\'></div>'
+                '<div class="clearfix"></div>'
                 );
             });
         },
