@@ -35,6 +35,7 @@ header('Content-Type: application/x-javascript');
 ?>
 var lang_error = '<?php echo lang('base_error'); ?>';
 var lang_warning = '<?php echo lang('base_warning'); ?>';
+var lang_learn_more = '<?php echo lang('support_learn_more'); ?>';
 var lang_day = '<?php echo lang('support_day_remaining'); ?>';
 var lang_days = '<?php echo lang('support_days_remaining'); ?>';
 var lang_upgrade = '<?php echo lang('support_upgrade'); ?>';
@@ -94,14 +95,30 @@ function get_support_info() {
                 if (data.edition == 'community') {
                     // Community Edition
                     if (data.upgrade_eligible) {
-                        var a_options = {
-                            external: true,
-                            target: '_blank',
-                            buttons: true
-                        };
+                        var links = [
+                            {
+                            url: '/app/edition/display/reset',
+                            text: lang_upgrade,
+                            options:
+                                {
+                                    external: false,
+                                    buttons: 'normal'
+                                }
+                            },
+                            {
+                            url: data.business_upgrade,
+                            text: lang_learn_more,
+                            options:
+                                {
+                                    external: true,
+                                    target: '_blank',
+                                    buttons: 'normal'
+                                }
+                            }
+                        ];
                         $('#message_container').show();
                         $('#message_content').html(data.upgrade_text +
-                            '<div class="theme-center-text">' + clearos_anchor(data.business_upgrade, lang_upgrade, a_options) + '</div>'
+                            '<div class="theme-center-text">' + clearos_anchors(links, null) + '</div>'
                         );
                         $('#support-upgrade-days-remaining').html(data.days_remaining + ' ' + (data.days_remaining > 1 ? lang_days : lang_day));
                         $('#f_support, #f_realtime_chat').hide();

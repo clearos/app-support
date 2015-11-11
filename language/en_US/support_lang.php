@@ -5,6 +5,7 @@ $lang['support_app_name'] = 'Support';
 $lang['support_chat_not_available'] = 'Support via chat is unavailable at this time.';
 $lang['support_community_forums'] = 'Community Forums';
 $lang['support_contact_upgrades'] = 'Contact our <a href="#" class="support-contact">upgrade team</a> for options.';
+$lang['support_learn_more'] = 'Learn more';
 $lang['support_upgrades_and_per_incident'] = 'To be eligible for support, please purchase a per-incident ticket or upgrade your subscription level <a href="#" class="support-upgrade-url">here</a>.';
 $lang['support_documentation'] = 'Documentation';
 $lang['support_knowledge_base'] = 'Advanced Knowledge Base';
