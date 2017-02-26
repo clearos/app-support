@@ -1,7 +1,7 @@
 
 Name: app-support
 Epoch: 1
-Version: 2.1.11
+Version: 2.3.20
 Release: 1%{dist}
 Summary: Support
 License: GPLv3
@@ -72,6 +72,7 @@ exit 0
 %files core
 %defattr(-,root,root)
 %exclude /usr/clearos/apps/support/packaging
+%exclude /usr/clearos/apps/support/unify.json
 %dir /usr/clearos/apps/support
 /usr/clearos/apps/support/deploy
 /usr/clearos/apps/support/language
