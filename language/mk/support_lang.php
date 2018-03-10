@@ -1,23 +1,23 @@
 <?php
 
-$lang['support_app_description'] = 'Опции и ресурси за поддршка на Вашиот систем. Ако би сакале да разговараат за вашите барања, молам <a href="#" class="support-contact"> Контактирајте не </a> .';
-$lang['support_app_name'] = 'поддршка';
-$lang['support_chat_not_available'] = 'Поддршка преку разговор не е достапна во овој момент.';
+$lang['support_app_description'] = 'Опции и ресурси за поддршка на вашиот систем. Ако сакате да разговарате за вашите барања, молам <a href="#" class="support-contact"> Контактирајте не </a> .';
+$lang['support_app_name'] = 'Поддршка';
+$lang['support_chat_not_available'] = 'Поддршка преку разговор е недостапна во овој момент.';
 $lang['support_community_forums'] = 'Форуми во заедницата';
-$lang['support_contact_upgrades'] = 'контактирајте ја нашата <a href="#" class="support-contact"> надградба тим </a> за опции.';
-$lang['support_day_remaining'] = 'ден Останати';
+$lang['support_contact_upgrades'] = 'Контакт со нас <a href="#" class="support-contact"> тим за надградба </a> за опции.';
+$lang['support_day_remaining'] = 'Денот останува';
 $lang['support_days_remaining'] = 'Преостанати денови';
 $lang['support_documentation'] = 'Документација';
-$lang['support_knowledge_base'] = 'База на напредни знаења';
+$lang['support_knowledge_base'] = 'Напредна база на знаење';
 $lang['support_learn_more'] = 'Научи повеќе';
-$lang['support_no_open_tickets'] = 'Нема отворени за воз';
+$lang['support_no_open_tickets'] = 'Нема отворени билети';
 $lang['support_not_available'] = 'Не е достапно';
-$lang['support_phone'] = 'телефон';
-$lang['support_please_open_ticket'] = 'Ве молиме да се отвори поддршка билет пред да се започне разговор сесија.';
-$lang['support_realtime_chat'] = 'Во реално време разговор поддршка';
-$lang['support_submit_bug_report'] = 'Поднесе Сериозност';
-$lang['support_submit_ticket'] = 'Поднесе поддршка билет';
-$lang['support_upgrades_and_per_incident'] = 'За да се квалификува за поддршка, Ве молиме да купите билет за инцидентот или надградба на вашиот ниво на претплата <a href="#" class="support-upgrade-url"> овде </a> .';
-$lang['support_upgrade'] = 'надградба';
-$lang['support_upgrade_window'] = 'надградба Подобност';
+$lang['support_phone'] = 'Телефон';
+$lang['support_please_open_ticket'] = 'Отворете билет за поддршка пред да започнете разговор.';
+$lang['support_realtime_chat'] = 'Поддршка за разговор во реално време';
+$lang['support_submit_bug_report'] = 'Поднесе извештај за грешка';
+$lang['support_submit_ticket'] = 'Поднесете билет за поддршка';
+$lang['support_upgrades_and_per_incident'] = 'За да имате право на поддршка, ве молиме да купите билет за инцидент или да го надградите нивото на претплата <a href="#" class="support-upgrade-url"> тука </a> .';
+$lang['support_upgrade'] = 'Надградба';
+$lang['support_upgrade_window'] = 'Подобрување на способноста';
 $lang['support_web'] = 'веб';
