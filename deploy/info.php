@@ -5,8 +5,7 @@
 /////////////////////////////////////////////////////////////////////////////
 
 $app['basename'] = 'support';
-$app['version'] = '2.3.22';
-$app['release'] = '1';
+$app['version'] = '2.5.0';
 $app['vendor'] = 'ClearCenter';
 $app['packager'] = 'ClearCenter';
 $app['license'] = 'GPLv3';
@@ -25,8 +24,12 @@ $app['subcategory'] = lang('base_subcategory_base');
 // Packaging
 /////////////////////////////////////////////////////////////////////////////
 
-$app['core_requires'] = array(
+$app['requires'] = array(
     'app-clearcenter'
+);
+
+$app['core_requires'] = array(
+    'app-clearcenter-core'
 );
 
 $app['core_file_manifest'] = array(

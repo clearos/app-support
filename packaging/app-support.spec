@@ -1,25 +1,28 @@
 
 Name: app-support
 Epoch: 1
-Version: 2.3.22
+Version: 2.5.0
 Release: 1%{dist}
 Summary: Support
 License: GPLv3
-Group: ClearOS/Apps
+Group: Applications/Apps
+Packager: ClearCenter
+Vendor: ClearCenter
 Source: %{name}-%{version}.tar.gz
 Buildarch: noarch
 Requires: %{name}-core = 1:%{version}-%{release}
 Requires: app-base
+Requires: app-clearcenter
 
 %description
 Options and resources for supporting your system.  If you would like to discuss your requirements, please <a href="#" class="support-contact">contact us</a>.
 
 %package core
-Summary: Support - Core
+Summary: Support - API
 License: LGPLv3
-Group: ClearOS/Libraries
+Group: Applications/API
 Requires: app-base-core
-Requires: app-clearcenter
+Requires: app-clearcenter-core
 
 %description core
 Options and resources for supporting your system.  If you would like to discuss your requirements, please <a href="#" class="support-contact">contact us</a>.
